@@ -54,19 +54,29 @@ exports.pushDefault= (paramArray,yourHandler) =>{
 }
 
 exports.stop = orbit=>{
-    //todo
+    orbit = orbit || "default"
+    if(map[orbit]){
+        map[orbit].promise.stopAuto()
+    }
 }
 
 exports.start = orbit=>{
-    //todo
+    orbit = orbit || "default"
+    if(map[orbit]){
+        map[orbit].promise.autoAction()
+    }
 }
 
-exports.stopAll = orbit=>{
-    //todo
+exports.stopAll = ()=>{
+    for (var orbit in map) {
+        map[orbit].promise.stopAuto()
+    }
 }
 
-exports.startAll = orbit=>{
-    //todo
+exports.startAll = ()=>{
+    for (var orbit in map) {
+        map[orbit].promise.autoAction()
+    }
 }
 
 exports.test = test
