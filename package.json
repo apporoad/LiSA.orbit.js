@@ -1,0 +1,30 @@
+{
+  "name": "lisa.orbit",
+  "version": "1.0.0",
+  "description": "task run just in task orbit",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apporoad/LiSA.orbit.js.git"
+  },
+  "keywords": [
+    "task",
+    "queue"
+  ],
+  "author": "apporoad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apporoad/LiSA.orbit.js/issues"
+  },
+  "homepage": "https://github.com/apporoad/LiSA.orbit.js#readme",
+  "dependencies": {
+    "lisa.promise": "^1.1.0",
+    "lisa.utils": "git+https://github.com/apporoad/LiSA.utils.js.git"
+  }
+}
