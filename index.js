@@ -31,7 +31,7 @@ exports.setOrbit = (orbit, handler, windowedResultHandler,defaultParam) =>{
     map[orbit].defaultParam =  defaultParam || map[orbit].defaultParam
 
     map[orbit].promise.autoAction(map[orbit].defaultParam,{
-        then : map[orbit].windowedResultHandler = windowedResultHandler,
+        then : map[orbit].windowedResultHandler,
         catch : err=>{ console.error(`LiSA.orbit: ${orbit} throwserror : ${err}` )}
     })
 }
@@ -43,7 +43,7 @@ exports.push = (orbit,paramArray, yourHandler) =>{
         exports.setOrbit(orbit)
         orbitMeta = map[orbit]
     }
-    console.log(orbitMeta)
+    //console.log(orbitMeta)
     orbitMeta.promise.assignBatch(
         yourHandler || orbitMeta.handler,
         utils.Type.isArray(paramArray) ? paramArray :[paramArray]
