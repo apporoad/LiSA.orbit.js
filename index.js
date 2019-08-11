@@ -16,9 +16,9 @@ var test = ()=>{
 
 }
 
-exports.setOrbit = (orbit, handler, windowedResultHandler,defaultParam) =>{
+exports.setOrbit = (orbit, handler, windowedResultHandler,defaultParam,internal) =>{
     //todo catch
-    orbit = orbit || "default"
+    orbit = orbit || "default" 
 
     if(map[orbit].promise){
         map[orbit].promise.stopAuto()
@@ -33,7 +33,8 @@ exports.setOrbit = (orbit, handler, windowedResultHandler,defaultParam) =>{
 
     map[orbit].promise.autoAction(map[orbit].defaultParam,{
         then : map[orbit] = windowedResultHandler,
-        catch : err=>{ console.error(`LiSA.orbit: ${orbit} throwserror : ${err}` )}
+        catch : err=>{ console.error(`LiSA.orbit: ${orbit} throwserror : ${err}` )},
+        internal : internal || 100
     })
 }
 
