@@ -1,6 +1,6 @@
 {
   "name": "lisa.orbit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "task run just in task orbit",
   "main": "index.js",
   "directories": {

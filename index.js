@@ -18,15 +18,14 @@ var test = ()=>{
 
 exports.setOrbit = (orbit, handler, windowedResultHandler,defaultParam,internal) =>{
     //todo catch
-    orbit = orbit || "default" 
-
+    orbit = orbit || "default"
+    map[orbit] = map[orbit] || {}
     if(map[orbit].promise){
         map[orbit].promise.stopAuto()
     }
     else{
         map[orbit].promise = LiSAPromise(1)
     }
-    map[orbit] = map[orbit] || {}
     map[orbit].handler = handler || map[orbit].handler
     map[orbit].windowedResultHandler = windowedResultHandler ||  map[orbit].windowedResultHandler
     map[orbit].defaultParam =  defaultParam || map[orbit].defaultParam
@@ -43,7 +42,9 @@ exports.push = (orbit,paramArray, yourHandler) =>{
     var orbitMeta = map[orbit]
     if(!orbitMeta){
         exports.setOrbit(orbit)
+        orbitMeta = map[orbit]
     }
+    //console.log(orbitMeta)
     orbitMeta.promise.assignBatch(
         yourHandler || orbitMeta.handler,
         utils.Type.isArray(paramArray) ? paramArray :[paramArray]
@@ -55,19 +56,29 @@ exports.pushDefault= (paramArray,yourHandler) =>{
 }
 
 exports.stop = orbit=>{
-    //todo
+    orbit = orbit || "default"
+    if(map[orbit]){
+        map[orbit].promise.stopAuto()
+    }
 }
 
 exports.start = orbit=>{
-    //todo
+    orbit = orbit || "default"
+    if(map[orbit]){
+        map[orbit].promise.autoAction()
+    }
 }
 
-exports.stopAll = orbit=>{
-    //todo
+exports.stopAll = ()=>{
+    for (var orbit in map) {
+        map[orbit].promise.stopAuto()
+    }
 }
 
-exports.startAll = orbit=>{
-    //todo
+exports.startAll = ()=>{
+    for (var orbit in map) {
+        map[orbit].promise.autoAction()
+    }
 }
 
 exports.test = test
