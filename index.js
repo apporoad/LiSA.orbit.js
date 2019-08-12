@@ -26,12 +26,12 @@ exports.setOrbit = (orbit, handler, windowedResultHandler,defaultParam,internal)
     else{
         map[orbit].promise = LiSAPromise(1)
     }
-    map[orbit].handler = handler || map[orbit].handler
+    map[orbit].handler = handler || map[orbit].handler || function(){}
     map[orbit].windowedResultHandler = windowedResultHandler ||  map[orbit].windowedResultHandler
     map[orbit].defaultParam =  defaultParam || map[orbit].defaultParam
 
     map[orbit].promise.autoAction(map[orbit].defaultParam,{
-        then : map[orbit] = windowedResultHandler,
+        then : map[orbit].windowedResultHandler,
         catch : err=>{ console.error(`LiSA.orbit: ${orbit} throwserror : ${err}` )},
         internal : internal || 100
     })
