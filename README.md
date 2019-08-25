@@ -5,8 +5,16 @@
 task orbit  just like planetary orbit
 
 ## how to use
+node
 ```bash
 npm i --save lisa.orbit
+```
+web
+```bash
+browserify -r ./index.js:lisa.orbit > orbit.js
+```
+```html
+<script src="js/orbit.js"></script>
 ```
 
 ```js
