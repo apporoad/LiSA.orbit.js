@@ -1,6 +1,6 @@
 {
   "name": "lisa.orbit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "task run just in task orbit",
   "main": "index.js",
   "directories": {
@@ -25,6 +25,6 @@
   "homepage": "https://github.com/apporoad/LiSA.orbit.js#readme",
   "dependencies": {
     "lisa.promise": "^1.1.0",
-    "lisa.utils": "git+https://github.com/apporoad/LiSA.utils.js.git"
+    "lisa.utils": "^1.0.0"
   }
 }
