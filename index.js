@@ -21,11 +21,13 @@ exports.setOrbit = (orbit, handler, windowedResultHandler,defaultParam,internal)
     orbit = orbit || "default"
     map[orbit] = map[orbit] || {}
     if(map[orbit].promise){
-        map[orbit].promise.stopAuto()
+        
     }
     else{
         map[orbit].promise = LiSAPromise(1)
     }
+    map[orbit].promise.stopAuto()
+
     map[orbit].handler = handler || map[orbit].handler || function(){}
     map[orbit].windowedResultHandler = windowedResultHandler ||  map[orbit].windowedResultHandler
     map[orbit].defaultParam =  defaultParam || map[orbit].defaultParam
